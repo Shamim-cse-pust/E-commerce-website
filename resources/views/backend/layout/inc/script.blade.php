@@ -10,7 +10,7 @@
 <!-- Vendor Scripts End -->
 
 <!-- Template Base Scripts Start -->
-<script src="font/CS-Line/csicons.min.js"></script>
+<script src="{{asset('assets/backend')}}/font/CS-Line/csicons.min.js"></script>
 <script src="{{asset('assets/backend')}}/js/base/helpers.js"></script>
 <script src="{{asset('assets/backend')}}/js/base/globals.js"></script>
 <script src="{{asset('assets/backend')}}/js/base/nav.js"></script>
