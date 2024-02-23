@@ -2,11 +2,7 @@
 <script src="{{asset('assets/backend')}}/js/vendor/jquery-3.5.1.min.js"></script>
 <script src="{{asset('assets/backend')}}/js/vendor/bootstrap.bundle.min.js"></script>
 <script src="{{asset('assets/backend')}}/js/vendor/OverlayScrollbars.min.js"></script>
-<script src="{{asset('assets/backend')}}/js/vendor/autoComplete.min.js"></script>
-<script src="{{asset('assets/backend')}}/js/vendor/clamp.min.js"></script>
-<script src="{{asset('assets/backend')}}/js/vendor/Chart.bundle.min.js"></script>
-<script src="{{asset('assets/backend')}}/js/vendor/chartjs-plugin-rounded-bar.min.js"></script>
-<script src="{{asset('assets/backend')}}/js/vendor/jquery.barrating.min.js"></script>
+
 <!-- Vendor Scripts End -->
 
 <!-- Template Base Scripts Start -->
