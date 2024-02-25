@@ -19,4 +19,8 @@
 <script src="{{asset('assets/backend')}}/js/pages/dashboard.js"></script>
 <script src="{{asset('assets/backend')}}/js/common.js"></script>
 <script src="{{asset('assets/backend')}}/js/scripts.js"></script>
+<script src="http://cdn.bootcss.com/toastr.js/latest/js/toastr.min.js"></script>
+{!! Toastr::message() !!}
 <!-- Page Specific Scripts End -->
+
+@stack('admin_script')

@@ -36,13 +36,9 @@
 
       <main>
         <div class="container mt-5">
-          @yield('admin_contain')
+          @yield('admin_content')
         </div>
       </main>
-
-
-
-
 
 
 
