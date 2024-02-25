@@ -49,9 +49,9 @@
                                      setting
                                      </button>
                                      <ul class="dropdown-menu">
-                                     <li><a class="dropdown-item" href="#">
+                                     <li><a class="dropdown-item" href="{{route('category.edit',$category->id)}}">
                                      <i class="fas fa-edit"></i> Edit</a></li>
-                                     <li><a class="dropdown-item" href="#">
+                                     <li><a class="dropdown-item" href="{{route('category.destroy',$category->id)}}">
                                      <i class="fas fa-trash"></i> Delete</a></li>
                                      </ul>
                                  </div>

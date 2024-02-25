@@ -63,7 +63,9 @@ class CategoryController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $category = Category::findOrFail($id);
+        // dd($category);
+        return view('backend.pages.category.edit', compact('category'));
     }
 
     /**
@@ -71,7 +73,20 @@ class CategoryController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $validatedData = $request->validate([
+            'title' => 'required|string|max:255|unique:categories,title',
+            // 'email' => 'required|email',
+            // Add validation rules for other fields as needed
+        ]);
+        $category = Category::findOrFail($id);
+        // return $category;
+        $category->update([
+            'title'=> $request->title,
+            'slug'=> Str::slug($request->title)
+        ]);
+
+        Toastr::success('Data Update Successfully!');
+        return redirect()->route('category.index');
     }
 
     /**
