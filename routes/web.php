@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\backend\CategoryController;
+use App\Http\Controllers\backend\TestimonialController;
+use App\Models\Testimonial;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -37,6 +39,7 @@ Route::prefix('admin/')->group(function(){
 
     // Category
     Route::resource('category', CategoryController::class)->middleware(['auth']);
+    Route::resource('testimonial', TestimonialController::class)->middleware(['auth']);
 });
 
 /*Admin Auth routes */
