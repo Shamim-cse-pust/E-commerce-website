@@ -54,10 +54,10 @@
                                     setting
                                     </button>
                                     <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="{{ route('testimonial.edit', $testimonial->client_name) }}">
+                                    <li><a class="dropdown-item" href="{{ route('testimonial.edit', $testimonial->id) }}">
                                     <i class="fas fa-edit"></i> Edit</a></li>
                                     <li>
-                                        <form action="{{ route('testimonial.destroy', $testimonial->client_name) }}" method="post">
+                                        <form action="{{ route('testimonial.destroy', $testimonial->id) }}" method="post">
                                             @csrf
                                             @method('DELETE')
                                             <button class="dropdown-item show_confirm" type="submit"><i class="fas fa-trash"></i> Delete</a></button>

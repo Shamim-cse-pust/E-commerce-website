@@ -22,7 +22,7 @@ class TestimonialController extends Controller
     {
         //$testimonial=Testimonial::latest(['id'])->select(['id','client_name','client_designation','client_image'])->paginate();
 
-       $testimonials = Testimonial::latest('id')->select(['id','client_name', 'client_name_slug','client_designation','client_message','client_image','updated_at'])->paginate();
+       $testimonials = Testimonial::latest('id')->select(['id','client_name', 'client_name_slug','client_designation','client_message','client_image','updated_at'])->paginate(100);
         return view('backend.pages.Testimonial.index',compact(['testimonials']));
 
     }
@@ -58,7 +58,7 @@ class TestimonialController extends Controller
         // $file=$request->File('client_image');
         // dump(Storage::putFileAs('testimonial',$file,'testimonial'.'.'.$file->getClientOriginalExtension()));
 
-       $this->image_upload($request, $testimonials->id);
+       $this->image_upload($request, $testimonials->id,0);
 
         Toastr::success('Data Store Successfully!');
         return redirect()->route('testimonial.index');
@@ -77,7 +77,9 @@ class TestimonialController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $testimonial = Testimonial::findOrFail($id);
+       // dd($testimonial);
+        return view('backend.pages.Testimonial.edit', compact('testimonial'));
     }
 
     /**
@@ -85,7 +87,25 @@ class TestimonialController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $validatedData = $request->validate([
+            'client_name' => 'required|string|max:255',
+            'client_designation' => 'required|string|max:255',
+            'client_message' => 'required|string',
+            'client_image' => 'required|nullable|image|mimes:jpg,png,jpeg|max:1024',
+        ]);
+        $testimonial = Testimonial::findOrFail($id);
+        $testimonial->update([
+            'client_name' => $request->client_name,
+            'client_name_slug' => Str::slug($request->client_name),
+            'client_designation' => $request->client_designation,
+            'client_message' => $request->client_message,
+            'is_active' => $request->filled('is_active')
+        ]);
+
+        $this->image_upload($request, $testimonial->id,1);
+
+        Toastr::success('Data Updated Successfully!!');
+        return redirect()->route('testimonial.index');
     }
 
     /**
@@ -93,39 +113,27 @@ class TestimonialController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $testimonial = testimonial::findOrFail($id)->delete();
+        Toastr::success('Data Deleted Successfully!');
+        return redirect()->route('testimonial.index');
     }
 
-    // public function image_upload($request, $item_id)
-    // {
 
-    //     $testimonial = Testimonial::findorFail($item_id);
-    //     //dd($request->all(), $testimonial, $request->hasFile('client_image'));
-    //     if ($request->hasFile('client_image')) {
-    //         if ($testimonial->client_image != 'default-client.jpg') {
-    //             //delete old photo
-    //             $photo_location = 'public/uploads/testimonials/';
-    //             $old_photo_location = $photo_location . $testimonial->client_image;
-    //             unlink(base_path($old_photo_location));
-    //         }
-    //         $photo_location = 'public/uploads/testimonials/';
-    //         $uploaded_photo = $request->file('client_image');
-    //         $new_photo_name = $testimonial->id . '.' . $uploaded_photo->getClientOriginalExtension();
-    //         $new_photo_location = $photo_location . $new_photo_name;
-    //         Image::make($uploaded_photo)->resize(105,105)->save(base_path($new_photo_location), 40);
-    //         //$user = User::find($category->id);
-    //         $check = $testimonial->update([
-    //             'client_image' => $new_photo_name,
-    //         ]);
-    //     }
-    // }
 
-    public function image_upload($request, $item_id)
+    public function image_upload($request, $item_id,$val)
     {
 
         $testimonial = Testimonial::findorFail($item_id);
         //dd($request->all(), $testimonial, $request->hasFile('client_image'));
         if ($request->hasFile('client_image')) {
+            // dd($testimonial->client_image );
+
+            if ($testimonial->client_image != 'default.jpg' && $val==1) {
+                //delete old photo
+                $photo_location = 'public/storage/testimonial/';
+                $old_photo_location = $photo_location . $testimonial->client_image;
+                unlink(base_path($old_photo_location));
+            }
 
             $manager = new ImageManager(new Driver());
             $uploaded_photo = $request->file('client_image');
