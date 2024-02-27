@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('client_name_slug');
             $table->string('client_designation');
             $table->longText('client_message');
-            $table->string('client_image')->nullable()->default('assets/backend/img/profile/profile-11.jpg');
+            $table->string('client_image')->nullable()->default('default.jpg');
             $table->timestamps();
             $table->softDeletes();
         });
