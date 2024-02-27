@@ -7,6 +7,7 @@
           <span class="label">Dashboard</span>
         </a>
       </li>
+
       <li>
         <a href="#Categories" data-href="">
           <i data-cs-icon="cupcake" class="icon" data-cs-size="18"></i>
@@ -25,6 +26,9 @@
           </li>
         </ul>
       </li>
+
+
+
       <li>
         <li>
         <a href="#products" data-href="Products.html">
@@ -44,6 +48,27 @@
           </li>
         </ul>
       </li>
+
+      <li>
+        <a href="#Testimonials" data-href="">
+          <i data-cs-icon="cupcake" class="icon" data-cs-size="18"></i>
+          <span class="label">Testimonials</span>
+        </a>
+        <ul id="Testimonials">
+          <li>
+            <a href="{{route('testimonial.index')}}">
+              <span class="label">List</span>
+            </a>
+          </li>
+          <li>
+            <a href="{{route('testimonial.create')}}">
+              <span class="label">Add New</span>
+            </a>
+          </li>
+        </ul>
+      </li>
+
+
       <li>
         <a href="#orders" data-href="Orders.html">
           <i data-cs-icon="cart" class="icon" data-cs-size="18"></i>
