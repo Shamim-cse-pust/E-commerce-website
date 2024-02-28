@@ -5,13 +5,14 @@ namespace App\Http\Controllers\backend;
 use App\Models\Product;
 use App\Models\Category;
 use Illuminate\Support\Str;
+use App\Models\ProductImage;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Brian2694\Toastr\Facades\Toastr;
-use App\Http\Requests\ProductStoreRequest;
-use App\Http\Requests\ProductUpdateRequest;
 use Intervention\Image\ImageManager;
 use Intervention\Image\Drivers\Gd\Driver;
+use App\Http\Requests\ProductStoreRequest;
+use App\Http\Requests\ProductUpdateRequest;
 
 class ProductController extends Controller
 {
@@ -57,6 +58,7 @@ class ProductController extends Controller
         ]);
 
         $this->image_upload($request, $product->id,0);
+        $this->multiple_image__upload($request, $product->id,0);
         Toastr::success('Data Stored Successfully!');
         return redirect()->route('product.index');
     }
@@ -100,6 +102,7 @@ class ProductController extends Controller
         ]);
 
         $this->image_upload($request, $product->id,1);
+        $this->multiple_image__upload($request, $product->id,1);
         Toastr::success('Data Updated Successfully!');
         return redirect()->route('product.index');
     }
@@ -157,4 +160,52 @@ class ProductController extends Controller
             // dd($product);
         }
     }
+
+    public function multiple_image__upload($request, $product_id,$val)
+    {
+        if ($request->hasFile('product_multiple_image')) {
+
+            // delete old photo first
+            $multiple_images = ProductImage::where('product_id', $product_id)->get();
+            //dd($multiple_images[0]);
+            if($val==1){
+            foreach ($multiple_images as $multiple_image) {
+                //dd($multiple_image->product_multiple_image);
+                if ($multiple_image->product_multiple_image != 'default.jpg') {
+                    //delete old photo
+                    $photo_location = 'public/storage/product/';
+                    $old_photo_location = $photo_location . $multiple_image->product_multiple_image;
+                    // dd($old_photo_location);
+                    unlink(base_path($old_photo_location));
+                }
+                // delete old value of db table
+                $multiple_image->delete();
+            }
+        }
+
+            $flag = 1; // Assign a flag variable
+            foreach ($request->file('product_multiple_image') as $single_photo) {
+            $manager = new ImageManager(new Driver());
+            // $uploaded_photo = $request->file('product_multiple_image');
+            $new_photo_name =$product_id .'-'.$flag.'.'. $single_photo->getClientOriginalExtension();
+            $new_photo_location = 'public/storage/product/'.$new_photo_name;
+
+            $image = $manager->read($single_photo);
+
+            // resize image proportionally to 300px width
+            $image->scale(width: 600,height:622);
+
+            $image->toPng()->save(base_path($new_photo_location));
+
+            ProductImage::create([
+                'product_id' => $product_id,
+                'product_multiple_image' => $new_photo_name,
+            ]);
+            $flag++;
+        }
+
+        }
+    }
+
+
 }
