@@ -114,7 +114,7 @@ class TestimonialController extends Controller
     public function destroy(string $id)
     {
         $testimonial = testimonial::findOrFail($id);
-        if($testimonial->client_image){
+        if($testimonial->client_image && $testimonial->client_image!="default.jpg"){
             $photo_location = 'storage/testimonial/'.$testimonial->client_image;
             unlink($photo_location);
         }

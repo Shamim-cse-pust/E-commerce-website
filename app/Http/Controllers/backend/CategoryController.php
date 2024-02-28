@@ -110,7 +110,7 @@ class CategoryController extends Controller
         $category = Category::findOrFail($id);
         // $category = Category::whereSlug($slug)->first();
 
-        if($category->category_image){
+        if($category->category_image && $category->category_image!="default.jpg"){
             $photo_location = 'storage/category/'.$category->category_image;
             unlink($photo_location);
         }
