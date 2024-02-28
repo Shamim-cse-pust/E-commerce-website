@@ -3,6 +3,7 @@
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\backend\CategoryController;
 use App\Http\Controllers\backend\TestimonialController;
+use App\Http\Controllers\frontend\HomeController;
 use App\Models\Testimonial;
 use Illuminate\Support\Facades\Route;
 
@@ -20,10 +21,10 @@ use Illuminate\Support\Facades\Route;
 // Route::get('/dashboard', function () {
 //     return view('backend.pages.dashboard');
 // });
-Route::get('/', function () {
-    return view('frontend.pages.home');
-});
-
+// Route::get('/', function () {
+//     return view('frontend.pages.home');
+// });
+Route::get('/',[HomeController::class,'home']);
 /*Admin Auth routes */
 
 Route::prefix('admin/')->group(function(){
