@@ -60,7 +60,7 @@
 
                     <div class="mb-3">
                         <label for="client-image" class="form-label">Client Image</label>
-                        <input type="file" class="form-control dropify" name="client_image" id="" data-default-file="{{ asset('uploads/testimonials') }}/{{ $testimonial->client_image }}">
+                        <input type="file" class="form-control dropify" name="client_image" id="" data-default-file="{{ asset('storage/testimonial') }}/{{ $testimonial->client_image }}">
                         @error('client_image')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>

@@ -113,7 +113,13 @@ class TestimonialController extends Controller
      */
     public function destroy(string $id)
     {
-        $testimonial = testimonial::findOrFail($id)->delete();
+        $testimonial = testimonial::findOrFail($id);
+        if($testimonial->client_image){
+            $photo_location = 'storage/testimonial/'.$testimonial->client_image;
+            unlink($photo_location);
+        }
+
+        $testimonial->delete();
         Toastr::success('Data Deleted Successfully!');
         return redirect()->route('testimonial.index');
     }
