@@ -4,10 +4,10 @@
         <div class="row">
             <div class="col-12">
                 <div class="breadcumb-wrap text-center">
-                    <h2>Shop Page</h2>
+                    <h2>{{$pagename}} Page</h2>
                     <ul>
                         <li><a href="{{route('home')}}">Home</a></li>
-                        <li><span>Shop</span></li>
+                        <li><span>{{$pagename}}</span></li>
                     </ul>
                 </div>
             </div>

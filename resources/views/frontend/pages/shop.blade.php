@@ -3,7 +3,7 @@
 Shop Page
 @endsection
 @section('frontend-content')
-@include('frontend.pages.widgets.breadcumb-area')
+@include('frontend.pages.widgets.breadcumb-area', ['pagename' => "Shop"])
 
 <!-- product-area start -->
 <div class="product-area pt-100">
@@ -42,7 +42,7 @@ Shop Page
                                 </div>
                             </div>
                             <div class="product-content">
-                                <h3><a href="single-product.html">{{ $product->name }}</a></h3>
+                                <h3><a href="{{ route('productdetail.page', ['product_slug' => $product->slug]) }}">{{ $product->name }}</a></h3>
                                 <p class="pull-left">${{ $product->product_price }}
 
                                 </p>
@@ -56,6 +56,11 @@ Shop Page
                     </li>
                     @endforeach
                 </ul>
+                <div class="col-12 text-center d-flex justify-content-center">
+                    <div class="py-3">
+                        {{ $allproducts->links() }}
+                    </div>
+                </div>
             </div>
             @foreach ($categories as $category)
             <div class="tab-pane" id="{{$category->slug}}">
@@ -75,7 +80,7 @@ Shop Page
                                 </div>
                             </div>
                             <div class="product-content">
-                                <h3><a href="single-product.html">{{$cproduct->name}}</a></h3>
+                                <h3><a href="{{ route('productdetail.page', ['product_slug' => $product->slug]) }}">{{$cproduct->name}}</a></h3>
                                 <p class="pull-left">${{$cproduct->product_price }}
 
                                 </p>

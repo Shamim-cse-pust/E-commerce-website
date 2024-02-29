@@ -42,4 +42,16 @@ class HomeController extends Controller
 
         ));
     }
+
+    function ProductDetail($product_slug)
+    {
+        $product = Product::whereSlug($product_slug)->with('category','productImages')->first();
+        $related = Product::whereNot('slug',$product_slug)->limit(4)->get();
+        // dd($product->productImages);
+        return view('frontend.pages.single-product', compact(
+            'product',
+            'related'
+
+        ));
+    }
 }
