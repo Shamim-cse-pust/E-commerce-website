@@ -3,6 +3,10 @@
     <div class="container">
         <div class="row">
             <div class="col-12">
+                <div class="section-title">
+                    <h2>Categories</h2>
+                    {{-- <img src="{{asset('assets/frontend')}}/images/section-title.png" alt=""> --}}
+                </div>
                 <div class="featured-active2 owl-carousel next-prev-style">
                     @foreach ($categories as $category )
 

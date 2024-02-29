@@ -21,4 +21,25 @@ class HomeController extends Controller
 
         return view('frontend.pages.home',compact(['testimonials','categories','products']));
     }
+
+    function shopPage()
+    {
+        $allproducts = Product::where('is_active', 1)
+        ->latest('id')
+        ->select('id','name','slug','product_price', 'product_stock', 'product_rating', 'product_image')
+        ->paginate(12);
+
+        $categories = Category::where('is_active', 1)
+        ->with('product')
+        ->latest('id')
+        ->limit(5)
+        ->select(['id', 'title', 'slug'])
+        ->get();
+
+        return view('frontend.pages.shop', compact(
+            'allproducts',
+            'categories'
+
+        ));
+    }
 }

@@ -1,6 +1,6 @@
 @extends('frontend.layouts.master')
 @section('frontend-title')
- <h1>Home Page</h1>
+Home Page
 @endsection
 
 @section('frontend-content')

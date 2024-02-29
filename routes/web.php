@@ -25,7 +25,8 @@ use Illuminate\Support\Facades\Route;
 // Route::get('/', function () {
 //     return view('frontend.pages.home');
 // });
-Route::get('/',[HomeController::class,'home']);
+Route::get('/',[HomeController::class,'home'])->name('home');
+Route::get('/shop',[HomeController::class,'shopPage'])->name('shop.page');
 /*Admin Auth routes */
 
 Route::prefix('admin/')->group(function(){
