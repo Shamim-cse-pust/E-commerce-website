@@ -66,6 +66,26 @@
         </ul>
       </li>
 
+      <li>
+        <a href="#Coupons" data-href="">
+          <i data-cs-icon="cupcake" class="icon" data-cs-size="18"></i>
+          <span class="label">Coupons</span>
+        </a>
+        <ul id="Testimonials">
+          <li>
+            <a href="{{route('coupon.index')}}">
+              <span class="label">List</span>
+            </a>
+          </li>
+          <li>
+            <a href="{{route('coupon.create')}}">
+              <span class="label">Add New</span>
+            </a>
+          </li>
+        </ul>
+      </li>
+
+
 
       <li>
         <a href="#orders" data-href="Orders.html">
