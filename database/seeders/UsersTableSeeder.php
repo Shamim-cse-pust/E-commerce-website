@@ -22,6 +22,7 @@ class UsersTableSeeder extends Seeder
                 'is_admin' => 1,
                 'name' => 'Admin',
                 'email' => 'admin@gmail.com',
+                'phone' =>'123456789',
                 'email_verified_at' => now(),
                 'password' => Hash::make('s123'),
                 'remember_token' => Str::random(10),
