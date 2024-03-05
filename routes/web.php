@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Order;
 use App\Models\Testimonial;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CheckoutController;
@@ -49,6 +50,12 @@ Route::post('/login',[RegisterController::class,'loginStore'])->name('login.stor
             /*Checkout Page */
     Route::get('checkout', [CheckoutController::class, 'checkoutPage'])->name('customer.checkoutpage');
     Route::post('placeorder', [CheckoutController::class, 'placeOrder'])->name('customer.placeorder');
+    Route::get('email', function(){
+        $order = Order::whereId(1)->with(['billing', 'orderdetails'])->get();
+        return view('frontend.mail.purchaseconfirm', [
+            'order_details' => $order
+        ]);
+    });
 
 
 });
