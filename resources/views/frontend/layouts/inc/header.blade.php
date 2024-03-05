@@ -52,7 +52,7 @@
                                 <ul class="dropdown_style">
                                     <li><a href="{{route('shop.page')}}">Shop Page</a></li>
                                     <li><a href="{{ route('cart.page') }}">Shopping cart</a></li>
-                                    <li><a href="checkout.html">Checkout</a></li>
+                                    <li><a href="{{route('customer.checkoutpage')}}">Checkout</a></li>
                                     <li><a href="wishlist.html">Wishlist</a></li>
                                 </ul>
                             </li>
@@ -60,9 +60,8 @@
                                 <a href="javascript:void(0);">Pages <i class="fa fa-angle-down"></i></a>
                                 <ul class="dropdown_style">
                                     <li><a href="about.html">About Page</a></li>
-                                    <li><a href="single-product.html">Product Details</a></li>
                                     <li><a href="{{ route('cart.page') }}">Shopping cart</a></li>
-                                    <li><a href="checkout.html">Checkout</a></li>
+                                    <li><a href="{{route('customer.checkoutpage')}}">Checkout</a></li>
                                     <li><a href="wishlist.html">Wishlist</a></li>
                                     <li><a href="faq.html">FAQ</a></li>
                                 </ul>
@@ -137,7 +136,7 @@
 
                                     <li>Subtotol: <span class="pull-right">${{ $total_price }}</span></li>
                                 <li>
-                                    <button>Check Out</button>
+                                    <a href="{{route('customer.checkoutpage')}}" class="btn btn-danger">Check Out</a>
                                 </li>
                             </ul>
                         </li>
