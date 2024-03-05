@@ -21,7 +21,7 @@
                             <div class="row">
                                 <div class="col-sm-12 col-12">
                                     <p>Full Name *</p>
-                                    <input type="text" name="name" class="form-control @error('name') is-invalid @enderror" required>
+                                    <input type="text" name="name" class="form-control @error('name') is-invalid @enderror">
                                     @error('name')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -30,7 +30,7 @@
                                 </div>
                                 <div class="col-sm-12 col-12">
                                     <p>Email Address *</p>
-                                    <input type="email" name="email" class="form-control @error('email') is-invalid @enderror" required>
+                                    <input type="email" name="email" class="form-control @error('email') is-invalid @enderror">
                                     @error('email')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -39,7 +39,7 @@
                                 </div>
                                 <div class="col-sm-12 col-12">
                                     <p>Phone No. *</p>
-                                    <input type="tel" name="phone" class="form-control @error('phone') is-invalid @enderror" required>
+                                    <input type="tel" name="phone" class="form-control @error('phone') is-invalid @enderror">
                                     @error('phone')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -48,7 +48,7 @@
                                 </div>
                                 <div class="col-sm-6 col-12 mb-3">
                                     <p>District *</p>
-                                    <select id="district_id" name="district_id" class="form-select js-example-basic-single" required>
+                                    <select id="district_id" name="district_id" class="form-select js-example-basic-single">
                                         <option value="1">Select a district</option>
                                         @foreach ($districts as $district)
                                         <option value="{{ $district->id }}">{{ $district->name }}</option>
@@ -63,7 +63,7 @@
                                 </div>
                                 <div class="col-12">
                                     <p>Your Address *</p>
-                                    <input type="text" name="address" placeholder="Enter Your Address" required>
+                                    <input type="text" name="address" placeholder="Enter Your Address">
                                 </div>
 
                                 <div class="col-12">
