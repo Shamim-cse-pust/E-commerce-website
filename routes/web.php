@@ -38,8 +38,10 @@ Route::get('/login',[RegisterController::class,'loginPage'])->name('login.page')
 Route::post('/login',[RegisterController::class,'loginStore'])->name('login.store');
 
 Route::prefix('/customer')->middleware(['auth','is_customer'])->group(function(){
-    Route::get('/dashboard',[CustomerDashboardController::class,'dashboard'])->name('customer.dashboard');
-    Route::get('/logout',[RegisterController::class,'logout'])->name('customer.logout');
+    Route::get('dashboard',[CustomerDashboardController::class,'dashboard'])->name('customer.dashboard');
+    Route::get('logout',[RegisterController::class,'logout'])->name('customer.logout');
+    Route::post('/cart/apply-coupon', [CartController::class, 'couponApply'])->name('customer.couponapply');
+    Route::get('/cart/remove-coupon/{coupon_name}', [CartController::class, 'removeCoupon'])->name('customer.couponremove');
 
 
 });
