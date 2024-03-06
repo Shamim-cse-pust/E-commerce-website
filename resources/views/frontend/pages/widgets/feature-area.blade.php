@@ -12,7 +12,7 @@
 
                         <div class="featured-wrap">
                             <div class="featured-img">
-                                <img src="{{asset('storage/category')}}/{{$category->category_image}}" alt="">
+                                <img src="{{asset('assets/storage/category')}}/{{$category->category_image}}" alt="">
                                 <div class="featured-content">
                                     <a href="{{route('shop.page')}}">{{$category->title}}</a>
                                 </div>

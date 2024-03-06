@@ -92,7 +92,7 @@
                                 {{-- @foreach ($wishlist as $items )
                                 <li class="cart-items">
                                     <div class="cart-img">
-                                        <img src="{{asset('storage/product')}}/{{$items->options->product_image}}" alt="" class="img-fluid rounded" style="width: 60px;">
+                                        <img src="{{asset('assets/storage/product')}}/{{$items->options->product_image}}" alt="" class="img-fluid rounded" style="width: 60px;">
                                     </div>
                                     <div class="cart-content">
                                         <a href="{{ route('wishlist.page') }}">{{$items->name}}</a>
@@ -121,7 +121,7 @@
                                 @foreach ($carts as $item)
                                 <li class="cart-items">
                                     <div class="cart-img">
-                                        <img src="{{asset('storage/product')}}//{{ $item->options->product_image }}" alt="" class="img-fluid rounded" style="width: 60px;">
+                                        <img src="{{asset('assets/storage/product')}}//{{ $item->options->product_image }}" alt="" class="img-fluid rounded" style="width: 60px;">
                                     </div>
                                     <div class="cart-content text-white">
                                         <a href="{{ route('cart.page') }}">{{ $item->name }}</a>

@@ -24,7 +24,7 @@
                     <tbody>
                         @foreach ($carts as $cartitem)
                         <tr>
-                            <td class="images"><img src="{{ asset('storage/product') }}/{{ $cartitem->options->product_image }}" alt=""></td>
+                            <td class="images"><img src="{{ asset('assets/storage/product') }}/{{ $cartitem->options->product_image }}" alt=""></td>
                             <td class="product"><a href="single-product.html">{{ $cartitem->name }}</a></td>
                             <td class="ptice">৳{{ $cartitem->price }}</td>
                             <td class="quantity cart-plus-minus">

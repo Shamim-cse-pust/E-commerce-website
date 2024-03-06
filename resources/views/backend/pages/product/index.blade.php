@@ -43,7 +43,7 @@
                     @foreach ($products as $product)
                         <tr>
                             <th scope="row">{{ $products->firstItem()+$loop->index }}</th>
-                            <td><img src="{{ asset('storage/product') }}/{{ $product->product_image }}" alt="" class="img-fluid rounded h-20 w-20"></td>
+                            <td><img src="{{ asset('assets/storage/product') }}/{{ $product->product_image }}" alt="" class="img-fluid rounded h-20 w-20"></td>
                             <td>{{ $product->updated_at->format('d M Y') }}</td>
                             <td>{{ $product->category->title }}</td>
                             <td>{{ $product->name }}</td>

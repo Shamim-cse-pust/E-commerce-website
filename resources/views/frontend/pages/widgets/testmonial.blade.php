@@ -21,7 +21,7 @@
                                 <p>{{$testimonial->client_designation}}</p>
                             </div>
                             <div class="test-img2">
-                                <img src="{{asset('storage/testimonial')}}/{{$testimonial->client_image}}" alt="">
+                                <img src="{{asset('assets/storage/testimonial')}}/{{$testimonial->client_image}}" alt="">
                             </div>
                         </div>
                     @endforeach

@@ -14,7 +14,7 @@
             <li class="col-xl-3 col-lg-4 col-sm-6 col-12">
                 <div class="product-wrap">
                     <div class="product-img">
-                        <img src="{{asset('storage/product')}}/{{$product->product->product_image}}" alt="">
+                        <img src="{{asset('assets/storage/product')}}/{{$product->product->product_image}}" alt="">
                         <div class="product-icon flex-style">
                             <ul>
                                 <li><a data-toggle="modal" data-target="#exampleModalCenter" href="javascript:void(0);"><i class="fa fa-eye"></i></a></li>

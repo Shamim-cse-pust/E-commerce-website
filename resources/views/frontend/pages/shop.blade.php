@@ -32,7 +32,7 @@ Shop Page
                         <div class="product-wrap">
                             <div class="product-img">
                                 <span>Sale</span>
-                                <img src="{{ asset('storage/product') }}/{{ $product->product_image }}" alt="">
+                                <img src="{{ asset('assets/storage/product') }}/{{ $product->product_image }}" alt="">
                                 <div class="product-icon flex-style">
                                     <ul>
                                         <li><a data-toggle="modal" data-target="#exampleModalCenter" href="javascript:void(0);"><i class="fa fa-eye"></i></a></li>
@@ -70,7 +70,7 @@ Shop Page
                         <div class="product-wrap">
                             <div class="product-img">
                                 <span>Sale</span>
-                                <img src="{{asset('storage/product')}}/{{$cproduct->product_image}}" alt="">
+                                <img src="{{asset('assets/storage/product')}}/{{$cproduct->product_image}}" alt="">
                                 <div class="product-icon flex-style">
                                     <ul>
                                         <li><a data-toggle="modal" data-target="#exampleModalCenter" href="javascript:void(0);"><i class="fa fa-eye"></i></a></li>

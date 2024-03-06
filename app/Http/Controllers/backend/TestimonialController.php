@@ -115,7 +115,7 @@ class TestimonialController extends Controller
     {
         $testimonial = testimonial::findOrFail($id);
         if($testimonial->client_image && $testimonial->client_image!="default.jpg"){
-            $photo_location = 'storage/testimonial/'.$testimonial->client_image;
+            $photo_location = 'assets/storage/testimonial/'.$testimonial->client_image;
             unlink($photo_location);
         }
 
@@ -136,7 +136,7 @@ class TestimonialController extends Controller
 
             if ($testimonial->client_image != 'default.jpg' && $val==1) {
                 //delete old photo
-                $photo_location = 'public/storage/testimonial/';
+                $photo_location = 'public/assets/storage/testimonial/';
                 $old_photo_location = $photo_location . $testimonial->client_image;
                 unlink(base_path($old_photo_location));
             }
@@ -144,7 +144,7 @@ class TestimonialController extends Controller
             $manager = new ImageManager(new Driver());
             $uploaded_photo = $request->file('client_image');
             $new_photo_name =$testimonial->id . '.' . $uploaded_photo->getClientOriginalExtension();
-            $new_photo_location = 'public/storage/testimonial/'.$new_photo_name;
+            $new_photo_location = 'public/assets/storage/testimonial/'.$new_photo_name;
 
             // read image from file system
             $image = $manager->read($uploaded_photo);

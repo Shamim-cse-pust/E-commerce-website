@@ -43,7 +43,7 @@
                              <th scope="row">{{ $categories->firstItem()+$loop->index }}</th>
                              <td>{{ $category->updated_at->format('d M Y') }}</td>
                              <td>
-                                <img src="{{ asset('storage/category') }}/{{ $category->category_image}}" width="50" height="50" alt="Image" class="img-fluid rounded-circle">
+                                <img src="{{ asset('assets/storage/category') }}/{{ $category->category_image}}" width="50" height="50" alt="Image" class="img-fluid rounded-circle">
                             </td>
 
                              <td>{{ $category->title }}</td>

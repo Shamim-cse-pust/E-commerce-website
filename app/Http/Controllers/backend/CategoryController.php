@@ -111,7 +111,7 @@ class CategoryController extends Controller
         // $category = Category::whereSlug($slug)->first();
 
         if($category->category_image && $category->category_image!="default.jpg"){
-            $photo_location = 'storage/category/'.$category->category_image;
+            $photo_location = 'assets/storage/category/'.$category->category_image;
             unlink($photo_location);
         }
 
@@ -135,7 +135,7 @@ class CategoryController extends Controller
 
             if ($category->category_image != 'default.jpg' && $val==1) {
                 //delete old photo
-                $photo_location = 'public/storage/category/';
+                $photo_location = 'public/assets/storage/category/';
                 $old_photo_location = $photo_location . $category->category_image;
                 unlink(base_path($old_photo_location));
             }
@@ -143,7 +143,7 @@ class CategoryController extends Controller
             $manager = new ImageManager(new Driver());
             $uploaded_photo = $request->file('category_image');
             $new_photo_name =$category->id . '.' . $uploaded_photo->getClientOriginalExtension();
-            $new_photo_location = 'public/storage/category/'.$new_photo_name;
+            $new_photo_location = 'public/assets/storage/category/'.$new_photo_name;
             // dd($new_photo_location);
             // read image from file system
             $image = $manager->read($uploaded_photo);

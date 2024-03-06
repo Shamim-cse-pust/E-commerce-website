@@ -31,7 +31,7 @@
                                     @php
                                         $product = App\Models\Product::find($wishlist->id);
                                     @endphp
-                                    <td class="images"><img src="{{asset('storage/product')}}/{{ $wishlist->options->product_image }}" alt=""></td>
+                                    <td class="images"><img src="{{asset('assets/storage/product')}}/{{ $wishlist->options->product_image }}" alt=""></td>
                                     <td class="product"><a href="#">{{$wishlist->name}}</a></td>
                                     <td class="ptice">{{$wishlist->price}}</td>
                                     <td class="stock">{{$wishlist->qty}}</td>

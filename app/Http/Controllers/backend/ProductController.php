@@ -113,7 +113,7 @@ class ProductController extends Controller
     {
         $product = Product::whereSlug($slug)->first();
         if($product->product_image && $product->product_image!="default.jpg"){
-            $photo_location = 'storage/product/'.$product->product_image;
+            $photo_location = 'assets/storage/product/'.$product->product_image;
             unlink($photo_location);
         }
 
@@ -136,7 +136,7 @@ class ProductController extends Controller
 
             if ($product->product_image != 'default.jpg' && $val==1) {
                 //delete old photo
-                $photo_location = 'public/storage/product/';
+                $photo_location = 'public/assets/storage/product/';
                 $old_photo_location = $photo_location . $product->product_image;
                 unlink(base_path($old_photo_location));
             }
@@ -144,7 +144,7 @@ class ProductController extends Controller
             $manager = new ImageManager(new Driver());
             $uploaded_photo = $request->file('product_image');
             $new_photo_name =$product->id . '.' . $uploaded_photo->getClientOriginalExtension();
-            $new_photo_location = 'public/storage/product/'.$new_photo_name;
+            $new_photo_location = 'public/assets/storage/product/'.$new_photo_name;
             // dd($new_photo_location);
             // read image from file system
             $image = $manager->read($uploaded_photo);
@@ -173,7 +173,7 @@ class ProductController extends Controller
                 //dd($multiple_image->product_multiple_image);
                 if ($multiple_image->product_multiple_image != 'default.jpg') {
                     //delete old photo
-                    $photo_location = 'public/storage/product/';
+                    $photo_location = 'public/assets/storage/product/';
                     $old_photo_location = $photo_location . $multiple_image->product_multiple_image;
                     // dd($old_photo_location);
                     unlink(base_path($old_photo_location));
@@ -188,7 +188,7 @@ class ProductController extends Controller
             $manager = new ImageManager(new Driver());
             // $uploaded_photo = $request->file('product_multiple_image');
             $new_photo_name =$product_id .'-'.$flag.'.'. $single_photo->getClientOriginalExtension();
-            $new_photo_location = 'public/storage/product/'.$new_photo_name;
+            $new_photo_location = 'public/assets/storage/product/'.$new_photo_name;
 
             $image = $manager->read($single_photo);
 

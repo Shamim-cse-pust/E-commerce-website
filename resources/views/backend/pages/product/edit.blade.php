@@ -151,7 +151,7 @@
                             <!-- Product Image Section -->
                             <div class="col-12 mb-3">
                                 <label for="product-image" class="form-label">Product Image</label>
-                                <input type="file" class="form-control dropify" name="product_image" data-default-file="{{ asset('uploads/product_photos') }}/{{ $product->product_image }}">
+                                <input type="file" class="form-control dropify" name="product_image" data-default-file="{{ asset('assets/storage/category') }}/{{ $product->product_image }}">
                                 @error('product_image')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>

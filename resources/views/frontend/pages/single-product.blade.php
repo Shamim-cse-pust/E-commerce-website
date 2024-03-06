@@ -13,22 +13,22 @@ Shop Page
                 <div class="product-single-img">
                     <div class="product-active owl-carousel">
                         <div class="item">
-                            <img src="{{asset('storage/product')}}/{{$product->product_image}}" alt="">
+                            <img src="{{asset('assets/storage/product')}}/{{$product->product_image}}" alt="">
                         </div>
                         @foreach ($product->productImages as $mproduct)
                             <div class="item">
-                                <img src="{{asset('storage/product')}}/{{$mproduct->product_multiple_image}}" alt="">
+                                <img src="{{asset('assets/storage/product')}}/{{$mproduct->product_multiple_image}}" alt="">
                             </div>
                         @endforeach
 
                     </div>
                     <div class="product-thumbnil-active  owl-carousel">
                         <div class="item">
-                            <img src="{{asset('storage/product')}}/{{$product->product_image}}" alt="">
+                            <img src="{{asset('assets/storage/product')}}/{{$product->product_image}}" alt="">
                         </div>
                         @foreach ($product->productImages as $mproduct)
                             <div class="item">
-                                <img src="{{asset('storage/product')}}/{{$mproduct->product_multiple_image}}" alt="">
+                                <img src="{{asset('assets/storage/product')}}/{{$mproduct->product_multiple_image}}" alt="">
                             </div>
                         @endforeach
                     </div>
@@ -290,7 +290,7 @@ Shop Page
                 <div class="col-lg-3 col-sm-6 col-12">
                     <div class="featured-product-wrap">
                         <div class="featured-product-img">
-                            <img src="{{asset('storage/product')}}/{{$rproduct->product_image}}" alt="">
+                            <img src="{{asset('assets/storage/product')}}/{{$rproduct->product_image}}" alt="">
                         </div>
                         <div class="featured-product-content">
                             <div class="row">
