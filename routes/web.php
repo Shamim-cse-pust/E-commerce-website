@@ -11,6 +11,7 @@ use App\Http\Controllers\backend\CouponController;
 use App\Http\Controllers\backend\ProductController;
 use App\Http\Controllers\backend\CategoryController;
 use App\Http\Controllers\backend\CustomerController;
+use App\Http\Controllers\backend\DashboardController;
 use App\Http\Controllers\backend\OrderController;
 use App\Http\Controllers\backend\TestimonialController;
 use App\Http\Controllers\frontend\Auth\RegisterController;
@@ -81,6 +82,8 @@ Route::prefix('admin/')->group(function(){
         Route::get('dashboard', function () {
             return view('backend.pages.dashboard');
         })->name('admin.dashboard');
+
+        Route::get('dashboard',[DashboardController::class,'dashboard'])->name('admin.dashboard');
            // Category
     Route::resource('category', CategoryController::class);
     Route::resource('testimonial', TestimonialController::class);
