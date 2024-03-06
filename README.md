@@ -15,7 +15,7 @@
 
 Laravel Framework 10
 
-## Installation in 6 easy steps
+## Installation in 7 easy steps
 
 
 - 1. cp .env.example .env
