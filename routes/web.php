@@ -10,6 +10,8 @@ use App\Http\Controllers\frontend\HomeController;
 use App\Http\Controllers\backend\CouponController;
 use App\Http\Controllers\backend\ProductController;
 use App\Http\Controllers\backend\CategoryController;
+use App\Http\Controllers\backend\CustomerController;
+use App\Http\Controllers\backend\OrderController;
 use App\Http\Controllers\backend\TestimonialController;
 use App\Http\Controllers\frontend\Auth\RegisterController;
 use App\Http\Controllers\frontend\CustomerDashboardController;
@@ -79,6 +81,9 @@ Route::prefix('admin/')->group(function(){
     Route::resource('product', ProductController::class);
     Route::resource('coupon', CouponController::class);
     Route::get('logout',[LoginController::class,'logout'])->name('admin.logout');
+
+    Route::get('order-list',[OrderController::class,'index'])->name('admin.orderlist');
+    Route::get('customer-list',[CustomerController::class,'index'])->name('admin.customerlist');
     });
 
 });
