@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers\frontend;
 
+use Illuminate\Support\Facades\DB;
 use App\Models\Product;
 use App\Models\Category;
 use App\Models\Testimonial;
+use App\Models\OrderDetails;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -19,7 +21,15 @@ class HomeController extends Controller
             ->select('id','name','slug','product_price', 'product_stock', 'product_rating', 'product_image')
             ->paginate(12);
 
-        return view('frontend.pages.home',compact(['testimonials','categories','products']));
+            $TSProducts = OrderDetails::select('product_id', DB::raw('SUM(product_qty) as total_quantity_sold'))
+            ->groupBy('product_id')
+            ->orderByDesc('total_quantity_sold')
+            ->take(5)
+            ->get();
+
+        // dd($TSProducts);
+
+        return view('frontend.pages.home',compact(['testimonials','categories','products','TSProducts']));
     }
 
     function shopPage()
