@@ -11,7 +11,7 @@
 
 <h1>This is Beautiful E-commerce Website</h1>
 
-###Current versions
+### Current versions
 
 Laravel Framework 10
 
@@ -24,7 +24,7 @@ Laravel Framework 10
 - 4. php artisan key:generate
 - 5. php artisan migrate:fresh --seed
 - 6. import 4 raw query in database , here has information of Division,District,Upazila and Union.
-          Procedure:
+          - **Procedure:
      - i.   open your database.
      - ii.  click import
      - iii. import files ( file location : open project folder-> bd_geo_sql ->4 files)
@@ -32,7 +32,7 @@ Laravel Framework 10
 - php artisan serve
 
        
-###optional
+### optional
 - run : php artisan storage:link
 
 
