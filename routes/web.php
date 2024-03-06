@@ -15,6 +15,7 @@ use App\Http\Controllers\backend\OrderController;
 use App\Http\Controllers\backend\TestimonialController;
 use App\Http\Controllers\frontend\Auth\RegisterController;
 use App\Http\Controllers\frontend\CustomerDashboardController;
+use App\Http\Controllers\frontend\WishlistController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,9 +32,14 @@ Route::prefix('')->group(function(){
 Route::get('/',[HomeController::class,'home'])->name('home');
 Route::get('/shop',[HomeController::class,'shopPage'])->name('shop.page');
 Route::get('/single-product/{product_slug}',[HomeController::class,'ProductDetail'])->name('productdetail.page');
+// Cart
 Route::get('/shopping-cart', [CartController::class, 'cartPage'])->name('cart.page');
 Route::post('/add-to-cart', [CartController::class, 'addToCart'])->name('add-to.cart');
 Route::get('/remove-from-cart/{cart_id}', [CartController::class, 'removeFromCart'])->name('removefrom.cart');
+//  Wishlist
+Route::get('/wishlist', [WishlistController::class, 'wishlistPage'])->name('wishlist.page');
+Route::post('/add-to-wishlist', [WishlistController::class, 'addToWishlist'])->name('add-to.wishlist');
+Route::get('/remove-from-wishlist/{wishlist_id}', [WishlistController::class, 'removeFromWishlist'])->name('removefrom.wishlist');
 
     /*Authentication routes for Customer/Guest */
 Route::get('/register',[RegisterController::class,'registerPage'])->name('register.page');

@@ -59,6 +59,18 @@ Shop Page
                             </li>
                         </form>
                     </ul>
+                    <ul class="input-style">
+                        <form action="{{ route('add-to.wishlist') }}" method="post">
+                            @csrf
+                            <input type="hidden" name="product_slug" value="{{ $product->slug }}">
+                            <li class="quantity cart-plus-minus">
+                                <input type="text" value="1" name="order_qty" />
+                            </li>
+                            <li>
+                                <button type="submit" class="btn btn-danger">Whishlist</button>
+                            </li>
+                        </form>
+                    </ul>
                     <ul class="cetagory">
                         <li>Categories:</li>
                         <li><a href="{{ route('shop.page') }}">{{ $product->category->title }}</a></li>

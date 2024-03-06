@@ -18,7 +18,7 @@
                             <ul class="dropdown_style">
                                 <li><a href="{{ route('cart.page') }}">Cart</a></li>
                                 <li><a href="checkout.html">Checkout</a></li>
-                                <li><a href="wishlist.html">wishlist</a></li>
+                                <li><a href="{{route('wishlist.page')}}">wishlist</a></li>
                                 <li><a href="{{ route('customer.logout') }}">Logout</a></li>
                             </ul>
                         </li>
@@ -53,7 +53,7 @@
                                     <li><a href="{{route('shop.page')}}">Shop Page</a></li>
                                     <li><a href="{{ route('cart.page') }}">Shopping cart</a></li>
                                     <li><a href="{{route('customer.checkoutpage')}}">Checkout</a></li>
-                                    <li><a href="wishlist.html">Wishlist</a></li>
+                                    <li><a href="{{route('wishlist.page')}}">Wishlist</a></li>
                                 </ul>
                             </li>
                             <li>
@@ -62,7 +62,7 @@
                                     <li><a href="about.html">About Page</a></li>
                                     <li><a href="{{ route('cart.page') }}">Shopping cart</a></li>
                                     <li><a href="{{route('customer.checkoutpage')}}">Checkout</a></li>
-                                    <li><a href="wishlist.html">Wishlist</a></li>
+                                    <li><a href="{{route('wishlist.page')}}">Wishlist</a></li>
                                     <li><a href="faq.html">FAQ</a></li>
                                 </ul>
                             </li>
@@ -81,42 +81,41 @@
                     <ul class="search-cart-wrapper d-flex">
                         <li class="search-tigger"><a href="javascript:void(0);"><i class="flaticon-search"></i></a></li>
                         <li>
-                            <a href="javascript:void(0);"><i class="flaticon-like"></i> <span>2</span></a>
+                            {{-- @php
+                                        $wishlist = \Gloudemans\Shoppingcart\Facades\Cart::instance('wishlist')->content();
+                                        $Wtotal_price = \Gloudemans\Shoppingcart\Facades\Cart::instance('wishlist')->subtotal();
+                            @endphp --}}
+
+
+                            <a href="javascript:void(0);"><i class="flaticon-like"></i> <span></span></a>
                             <ul class="cart-wrap dropdown_style">
+                                {{-- @foreach ($wishlist as $items )
                                 <li class="cart-items">
                                     <div class="cart-img">
-                                        <img src="{{asset('assets/frontend')}}/images/cart/1.jpg" alt="">
+                                        <img src="{{asset('storage/product')}}/{{$items->options->product_image}}" alt="" class="img-fluid rounded" style="width: 60px;">
                                     </div>
                                     <div class="cart-content">
-                                        <a href="{{ route('cart.page') }}">Pure Nature Product</a>
-                                        <span>QTY : 1</span>
-                                        <p>$35.00</p>
+                                        <a href="{{ route('wishlist.page') }}">{{$items->name}}</a>
+                                        <span>{{$items->qty}}</span>
+                                        <p>{{$items->price}}</p>
                                         <i class="fa fa-times"></i>
                                     </div>
                                 </li>
-                                <li class="cart-items">
-                                    <div class="cart-img">
-                                        <img src="{{asset('assets/frontend')}}/images/cart/3.jpg" alt="">
-                                    </div>
-                                    <div class="cart-content">
-                                        <a href="{{ route('cart.page') }}">Pure Nature Product</a>
-                                        <span>QTY : 1</span>
-                                        <p>$35.00</p>
-                                        <i class="fa fa-times"></i>
-                                    </div>
-                                </li>
-                                <li>Subtotol: <span class="pull-right">$70.00</span></li>
+
+                                @endforeach
+                                <li>Subtotol: <span class="pull-right">${{$Wtotal_price}}</span></li> --}}
                                 <li>
-                                    <button>Check Out</button>
+                                    <a href="{{route('wishlist.page')}}" class="btn btn-danger">Wishlist</a>
                                 </li>
                             </ul>
                         </li>
                         <li>
                                 @php
                                         $carts = \Gloudemans\Shoppingcart\Facades\Cart::content();
+                                        $cartCount= \Gloudemans\Shoppingcart\Facades\Cart::count();
                                         $total_price = \Gloudemans\Shoppingcart\Facades\Cart::subtotal();
                                 @endphp
-                            <a href="javascript:void(0);"><i class="flaticon-shop"></i> <span>{{sizeof($carts)}}</span></a>
+                            <a href="javascript:void(0);"><i class="flaticon-shop"></i> <span>{{$cartCount}}</span></a>
                             <ul class="cart-wrap dropdown_style">
 
                                 @foreach ($carts as $item)
@@ -168,7 +167,7 @@
                                     <li><a href="single-product.html">Product Details</a></li>
                                     <li><a href="{{ route('cart.page') }}">Shopping cart</a></li>
                                     <li><a href="checkout.html">Checkout</a></li>
-                                    <li><a href="wishlist.html">Wishlist</a></li>
+                                    <li><a href="{{route('wishlist.page')}}">Wishlist</a></li>
                                 </ul>
                             </li>
                             <li class="sidemenu-items">
@@ -178,7 +177,7 @@
                                   <li><a href="single-product.html">Product Details</a></li>
                                   <li><a href="{{ route('cart.page') }}">Shopping cart</a></li>
                                   <li><a href="checkout.html">Checkout</a></li>
-                                  <li><a href="wishlist.html">Wishlist</a></li>
+                                  <li><a href="{{route('wishlist.page')}}">Wishlist</a></li>
                                   <li><a href="faq.html">FAQ</a></li>
                                 </ul>
                             </li>
